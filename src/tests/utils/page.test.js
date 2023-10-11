@@ -1,5 +1,10 @@
-test('første test', () => {
-    render(<page />)
-    const title = screen.getByText(/Create User/i)
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import Home from "@/app/page";
+
+it('test test Main', () => {
+    render(<Home />)
+    const title = document.querySelector('main')
     expect(title).toBeInTheDocument();
 })
+
