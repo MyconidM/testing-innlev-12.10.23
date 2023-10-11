@@ -2,7 +2,6 @@
 import Header from "@/components/Header";
 import CreateUser from "@/components/CreateUser";
 import { useState } from "react";
-import { parseSetCookie } from "next/dist/compiled/@edge-runtime/cookies";
 
 
 export default function Home() {

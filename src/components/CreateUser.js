@@ -1,5 +1,3 @@
-import InputUserInfo from "./InputUserInfo"
-
 const CreateUser = ({ username, setUsername, password, setPassword, submitUser}) => {
     const handleUsername = (event) => {
         setUsername(event.target.value)
