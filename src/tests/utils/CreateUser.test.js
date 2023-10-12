@@ -1,4 +1,4 @@
-import { render, screen, fireEvent  } from '@testing-library/react';
+import { render, screen, fireEvent, renderHook  } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import CreateUser from "@/components/CreateUser";
 
@@ -8,11 +8,33 @@ it('should render input with empty string', () => {
     expect(inputs).toHaveTextContent('');
 })
 
-it('create a user entry', () => {
+it('should render input', () => {
     render(<CreateUser />)
-    const btn = document.querySelector('button')
-    const nameInput = screen.getByPlaceholderText('Username')
+    const inputs = document.querySelector('input')
 
-    fireEvent.change(nameInput, {target: {value: '123'}})
-    expect(nameInput.value).toBe('123')
-}) 
+    fireEvent.change(inputs, {target: {value: 'ttt'}})
+    expect(inputs).toHaveTextContent('ttt');
+})
+
+
+// it('create a user entry', () => {
+//     const {result} = renderHook(() => CreateUser())
+//     // const btn = document.querySelector('button')
+//     // const nameInput = screen.getByPlaceholderText('Username')
+
+    
+//     //fireEvent.change(nameInput, {target: {value: '123'}})
+//     expect(result.current.username).toBe('')
+// }) 
+
+// it('should render input with empty string', () => {
+//     const {input} = CreateUser()
+//     // render(<CreateUser />)
+//     // const input = document.querySelector('input')
+//     // const btn = document.querySelector('button')
+
+//     fireEvent.change(input, {target: {value: "hei"}})
+//     expect(input.value).toHaveTextContent('hei');
+// })
+
+
