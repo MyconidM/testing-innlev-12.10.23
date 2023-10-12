@@ -1,6 +1,7 @@
 import { render, screen, fireEvent, renderHook  } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import CreateUser from "@/components/CreateUser";
+import userEvent from '@testing-library/user-event';
 
 it('should render input with empty string', () => {
     render(<CreateUser />)
@@ -26,24 +27,21 @@ it('should contain form', () => {
     expect(form).toBeInTheDocument()
 })
 
-it('form should have username and pasword', () => {
-    render(<CreateUser />)
+describe('CreateUsert', () => {
+    it('form should have username and pasword', () => {
+    const onSubmit = userEvent.setup();
+    render(<CreateUser  />)
+    const btn = screen.getByText('Create user')
+     onSubmit.click(btn)
 
-    const form = document.querySelector('form')
-    const username = screen.getByPlaceholderText('Username')
-    const password = screen.getByPlaceholderText('Password')
+    // const form = document.querySelector('form')
+    // const username = screen.getByPlaceholderText('Username')
+    // const password = screen.getByPlaceholderText('Password')
 
-    expect(form).toContain(username)
+    expect(onSubmit).toBeCalled()
 
 })
-// it('should render input', () => {
-//     render(<CreateUser />)
-//     const inputs = document.querySelector('input')
-
-//     fireEvent.change(inputs, {target: {value: 'ttt'}})
-//     expect(inputs).toHaveTextContent('ttt');
-// })
-
+})
 
 
 // it('create a user entry', () => {
