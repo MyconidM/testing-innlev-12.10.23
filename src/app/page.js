@@ -33,7 +33,7 @@ export default function Home() {
     // : setUser(() =>[...user, {username, password}]);
     //console.log(user)
 }
-console.log(user)
+//console.log(user)
   return (
     <main className="flex min-h-screen flex-col items-center p-5">
       <Header title="Create user"/>
